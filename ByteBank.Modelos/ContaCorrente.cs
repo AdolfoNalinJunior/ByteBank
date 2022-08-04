@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Modelos
 {
+    /// <summary>
+    /// Defini uma Conta Correte do Banco Bytebank.
+    /// </summary>
     public class ContaCorrente
     {
+        
         public Cliente Titular { get; set; }
         public int ContadorTransferenciasNaoPermitidas { get; private set; }
         public int ContadorSaqueNaoPermitidos { get; private set; }
@@ -32,7 +36,12 @@ namespace ByteBank.Modelos
                 _saldo = value;
             }
         }
-
+        /// <summary>
+        /// Cria uma instancia de ContaCorrente com os argumentos utilizados.
+        /// </summary>
+        /// <param name="agencia">Repersenta o valor da propria <see cref="Agencia"/> e deve ser maior que zero.</param>
+        /// <param name="numero">Representa o valor da proprio <see cref="Numero"/> e deve ser maior que zero.</param>
+        /// <exception cref="ArgumentException"></exception>
         public ContaCorrente(int agencia, int numero)
         {
             if (agencia <= 0)

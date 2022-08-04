@@ -12,8 +12,6 @@ namespace ByteBank.Modelos
         {
             ModificadoresTeste teste = new ModificadoresTeste();
             teste.MetodoPublico();
-            teste.MetodoProtegido();
-            teste.MetodoPrivado();
         }
 
     class ClasseDerivada : ModificadoresTeste
