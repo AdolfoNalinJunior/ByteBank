@@ -12,7 +12,7 @@ namespace ByteBank.SistemaAgencia
         public string URL { get;}
         public ExtratorValorDeArgumentos(string url)
         {
-            if (string.IsNullOrEmpty(url))
+            if (String.IsNullOrEmpty(url))
             {
                 throw new ArgumentException("O argumento não pode ser nulo ou vazio! ", nameof(url));
             }
@@ -23,10 +23,25 @@ namespace ByteBank.SistemaAgencia
 
             this.URL = url;
         }
-
+        // moedaOrigem=moedaDestino&moedaDestino=dolar
         public string GetValor(string nomeParametro)
         {
-            return "";
+            string termo = nomeParametro + "="; // moedaDestino + "="
+            int indiceTermo = _argumentos.IndexOf(termo);
+
+            string resultado = _argumentos.Substring(indiceTermo + termo.Length); // dólar
+
+            int indiceEComercial = resultado.IndexOf('&');
+
+            if (indiceEComercial == -1)
+            {
+                return resultado;
+            }
+            else
+            {
+                return resultado.Remove(indiceEComercial);
+            }
+
         }
     }
 }

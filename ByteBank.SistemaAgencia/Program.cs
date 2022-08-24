@@ -13,28 +13,34 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-           
-            string url = "paginas?argumentos";
 
-            int indiceInterrogacao = url.IndexOf('?');
+            //string url = "paginas?argumentos";
 
-            Console.WriteLine(url);
-            string argumento = url.Substring(indiceInterrogacao + 1);
-            Console.WriteLine(argumento);
+            //int indiceInterrogacao = url.IndexOf('?');
 
-            string vazia = "";
-            Console.WriteLine(String.IsNullOrEmpty(vazia));
+            //Console.WriteLine(url);
+            //string argumento = url.Substring(indiceInterrogacao + 1);
+            //Console.WriteLine(argumento);
 
-            string palavra = "moedaOrigem=real&moedaDestino=dolar";
-            string nomeArgumento = "moedaDestino";
+            //string vazia = "";
+            //Console.WriteLine(String.IsNullOrEmpty(vazia));
 
-            int indice = palavra.IndexOf(nomeArgumento);
-            Console.WriteLine(indice);
+            //string palavra = "moedaOrigem=real&moedaDestino=dolar";
+            //string nomeArgumento = "moedaDestino=";
+            //int indice = palavra.IndexOf(nomeArgumento);
+            //Console.WriteLine(indice);
+            //Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length); 
+            //Console.WriteLine(palavra);
+            //Console.WriteLine(palavra.Substring(indice));
+            //Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
 
-            Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length); 
-            Console.WriteLine(palavra);
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
+            string urlParametro = "htpp://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
+            ExtratorValorDeArgumentos extratorDeArgumentos = new ExtratorValorDeArgumentos(urlParametro);
 
+            string valorMoedaDestino = extratorDeArgumentos.GetValor("moedaDestino");
+            Console.WriteLine(valorMoedaDestino);
+            string valorMoedaOrigem = extratorDeArgumentos.GetValor("moedaOrigem");
+            Console.WriteLine(valorMoedaOrigem);
         }
     }
 }
