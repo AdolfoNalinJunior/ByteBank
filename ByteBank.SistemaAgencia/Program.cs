@@ -34,13 +34,22 @@ namespace ByteBank.SistemaAgencia
             //Console.WriteLine(palavra.Substring(indice));
             //Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
 
-            string urlParametro = "htpp://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
+            string urlParametro = "htpp://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
             ExtratorValorDeArgumentos extratorDeArgumentos = new ExtratorValorDeArgumentos(urlParametro);
 
             string valorMoedaDestino = extratorDeArgumentos.GetValor("moedaDestino");
             Console.WriteLine(valorMoedaDestino);
             string valorMoedaOrigem = extratorDeArgumentos.GetValor("moedaOrigem");
             Console.WriteLine(valorMoedaOrigem);
+
+            Console.WriteLine(extratorDeArgumentos.GetValor("Valor"));
+
+            //string mensagemOrigem = "PALAVRA";
+            //string termoBusca = "ra";
+            //termoBusca = termoBusca.Replace('r', 'R');
+            //Console.WriteLine(termoBusca);
+            //termoBusca = termoBusca.Replace('a', 'R');
+            //Console.WriteLine(termoBusca);
         }
     }
 }
