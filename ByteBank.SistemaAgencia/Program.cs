@@ -34,15 +34,15 @@ namespace ByteBank.SistemaAgencia
             //Console.WriteLine(palavra.Substring(indice));
             //Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
 
-            string urlParametro = "htpp://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
-            ExtratorValorDeArgumentos extratorDeArgumentos = new ExtratorValorDeArgumentos(urlParametro);
+            //string urlParametro = "https://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+            //ExtratorValorDeArgumentos extratorDeArgumentos = new ExtratorValorDeArgumentos(urlParametro);
 
-            string valorMoedaDestino = extratorDeArgumentos.GetValor("moedaDestino");
-            Console.WriteLine(valorMoedaDestino);
-            string valorMoedaOrigem = extratorDeArgumentos.GetValor("moedaOrigem");
-            Console.WriteLine(valorMoedaOrigem);
+            //string valorMoedaDestino = extratorDeArgumentos.GetValor("moedaDestino");
+            //Console.WriteLine(valorMoedaDestino);
+            //string valorMoedaOrigem = extratorDeArgumentos.GetValor("moedaOrigem");
+            //Console.WriteLine(valorMoedaOrigem);
 
-            Console.WriteLine(extratorDeArgumentos.GetValor("Valor"));
+            //Console.WriteLine(extratorDeArgumentos.GetValor("Valor"));
 
             //string mensagemOrigem = "PALAVRA";
             //string termoBusca = "ra";
@@ -50,6 +50,21 @@ namespace ByteBank.SistemaAgencia
             //Console.WriteLine(termoBusca);
             //termoBusca = termoBusca.Replace('a', 'R');
             //Console.WriteLine(termoBusca);
+
+            //Validação do Link
+
+            string urlTeste = "https://www.bytebank.com/cambio";
+            int indiceConfirmacao = urlTeste.IndexOf("https://www.bytebank.com");
+
+            Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));
+            /* Esse é um método de verificação que mostra se o argumento indicado é o primeiro argumento da url*/
+
+            Console.WriteLine(urlTeste.EndsWith("cambio"));
+            /* Esse é um método de verificação que mostra de o argumento indicado é o ultimo argumeno da url*/
+
+            Console.WriteLine(urlTeste.Contains("bytebank"));
+            /* O método contains é para verificar se a variável contem o argumento desejado*/
+
         }
     }
 }
