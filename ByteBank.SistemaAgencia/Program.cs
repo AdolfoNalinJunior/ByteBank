@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Humanizer;
+using System.Text.RegularExpressions;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -13,58 +14,20 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            //string padrao = [0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]
+            //string padrao = [0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]
+            string padrao = "[0-9]{4}[-][0-9]{4}"; 
+            // As chaves faz a quantificação, há quantidade de quantificação vai depender do número que esta dentos
+            // A variável padrao é uma "Expressão Regular" que mostra ou defini um padrao
 
-            //string url = "paginas?argumentos";
-
-            //int indiceInterrogacao = url.IndexOf('?');
-
-            //Console.WriteLine(url);
-            //string argumento = url.Substring(indiceInterrogacao + 1);
-            //Console.WriteLine(argumento);
-
-            //string vazia = "";
-            //Console.WriteLine(String.IsNullOrEmpty(vazia));
-
-            //string palavra = "moedaOrigem=real&moedaDestino=dolar";
-            //string nomeArgumento = "moedaDestino=";
-            //int indice = palavra.IndexOf(nomeArgumento);
-            //Console.WriteLine(indice);
-            //Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length); 
-            //Console.WriteLine(palavra);
-            //Console.WriteLine(palavra.Substring(indice));
-            //Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
-
-            //string urlParametro = "https://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
-            //ExtratorValorDeArgumentos extratorDeArgumentos = new ExtratorValorDeArgumentos(urlParametro);
-
-            //string valorMoedaDestino = extratorDeArgumentos.GetValor("moedaDestino");
-            //Console.WriteLine(valorMoedaDestino);
-            //string valorMoedaOrigem = extratorDeArgumentos.GetValor("moedaOrigem");
-            //Console.WriteLine(valorMoedaOrigem);
-
-            //Console.WriteLine(extratorDeArgumentos.GetValor("Valor"));
-
-            //string mensagemOrigem = "PALAVRA";
-            //string termoBusca = "ra";
-            //termoBusca = termoBusca.Replace('r', 'R');
-            //Console.WriteLine(termoBusca);
-            //termoBusca = termoBusca.Replace('a', 'R');
-            //Console.WriteLine(termoBusca);
-
-            //Validação do Link
-
-            string urlTeste = "https://www.bytebank.com/cambio";
-            int indiceConfirmacao = urlTeste.IndexOf("https://www.bytebank.com");
-
-            Console.WriteLine(urlTeste.StartsWith("https://www.bytebank.com"));
-            /* Esse é um método de verificação que mostra se o argumento indicado é o primeiro argumento da url*/
-
-            Console.WriteLine(urlTeste.EndsWith("cambio"));
-            /* Esse é um método de verificação que mostra de o argumento indicado é o ultimo argumeno da url*/
-
-            Console.WriteLine(urlTeste.Contains("bytebank"));
-            /* O método contains é para verificar se a variável contem o argumento desejado*/
-
+            string textoTeste = "Meu nome é Adolfo, me ligue em 4784-4546";
+            Match resultado = Regex.Match(textoTeste, padrao);
+            Console.WriteLine(resultado);
+            
+            /*A classe Regex.IsMatch() retorna o valor verdadeiro ou falso, ou seja, se possui ou não esse padrão
+             
+            A classe Regex.Match() retorna valores de objetos, porem é só converter esse valor para string ou armazenar em 
+            uma variavel tipo Match, como é feita na variável resultado*/
         }
     }
 }
