@@ -20,7 +20,7 @@ namespace ByteBank.SistemaAgencia
             // As chaves faz a quantificação, há quantidade de quantificação vai depender do número que esta dentos
             // A variável padrao é uma "Expressão Regular" que mostra ou defini um padrao
 
-            string textoTeste = "Meu nome é Adolfo, me ligue em 4784-4546";
+            string textoTeste = "Meu nome é Adolfo, me ligue em 99784-4546";
             Match resultado = Regex.Match(textoTeste, padrao);
             Console.WriteLine(resultado);
             
