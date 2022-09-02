@@ -28,6 +28,25 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine("Resultado: " + contaToString);
             Console.WriteLine(conta);
 
+            Cliente carlos_1 = new Cliente();
+            carlos_1.Nome = "Carlos";
+            carlos_1.CPF = "493.345.768-02";
+            carlos_1.Profissao = "Designer";
+
+            Cliente carlos_2 = new Cliente();
+            carlos_2.Nome = "Carlos";
+            carlos_2.CPF = "493.345.768-02";
+            carlos_2.Profissao = "Designer";
+
+            if (carlos_1.Equals(conta))
+            {
+                Console.WriteLine("São iguais");
+            }
+            else
+            {
+                Console.WriteLine("Não são iguais");
+            }
+
         }
 
         static void TestandoStrings()

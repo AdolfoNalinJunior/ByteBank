@@ -8,21 +8,22 @@ namespace ByteBank.Modelos
 {
     public class Cliente
     {
-        private string _cpf;
-
         public string Nome { get; set; }
-        public string CPF
-        {
-            get
-            {
-                return _cpf;
-            }
-            set
-            {
-                // Escrevo minha lógica de validação de CPF
-                _cpf = value;
-            }
-        }
+        public string CPF { get; set; }
         public string Profissao { get; set; }
+
+        public override bool Equals(Object obj)
+        {
+            Cliente cliente = obj as Cliente;
+
+            if (cliente == null)
+            {
+                return false;
+            }
+            else
+            {
+                return CPF == cliente.CPF;
+            } 
+        }
     }
 }
