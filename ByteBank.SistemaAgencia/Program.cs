@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Humanizer;
 using System.Text.RegularExpressions;
+using ByteBank.Modelos.Funcionarios;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -20,7 +21,13 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine(true);
 
             Object conta = new ContaCorrente(123,34232);
+            Desenvolvedor desenvolvedor = new Desenvolvedor("siohfvsuio");
+
+            string contaToString = conta.ToString();
+
+            Console.WriteLine("Resultado: " + contaToString);
             Console.WriteLine(conta);
+
         }
 
         static void TestandoStrings()
