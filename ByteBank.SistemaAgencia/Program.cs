@@ -18,13 +18,14 @@ namespace ByteBank.SistemaAgencia
         {
             // Array de inteiros, com 5 posições
 
-            int[] idades = new int[5];
+            int[] idades = null;
+            //new int[5];
 
-            //idades[0] = 28;
-            //idades[1] = 15;
-            //idades[2] = 28;
-            //idades[3] = 35;
-            //idades[4] = 50;
+            idades[0] = 28;
+            idades[1] = 15;
+            idades[2] = 28;
+            idades[3] = 35;
+            idades[4] = 50;
 
             Console.WriteLine(idades[4]);
         } 
