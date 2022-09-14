@@ -10,6 +10,7 @@ namespace ByteBank.SistemaAgencia
 {
     public class ListaContaCorrente
     {
+        public ContaCorrente Conta { get; set; }
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
 
@@ -52,7 +53,19 @@ namespace ByteBank.SistemaAgencia
                 }
                 _itens = novoArray;
             }
+        }
+                               // joãoRicardo
+        private void Remover(ContaCorrente item)
+        {
+            int indiceItem = -1;
 
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                if (_itens[i].Equals(item))
+                {
+
+                }
+            }
         }
     }
 }
