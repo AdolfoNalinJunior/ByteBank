@@ -20,39 +20,17 @@ namespace ByteBank.SistemaAgencia
         {
             ListaContaCorrente lista = new ListaContaCorrente();
 
+            ContaCorrente contaAdolfo = new ContaCorrente(12, 2344);
+            lista.Adicionar(contaAdolfo);
             lista.Adicionar(new ContaCorrente(1234, 3454));
             lista.Adicionar(new ContaCorrente(1234, 3454));
             lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
-            lista.Adicionar(new ContaCorrente(1234, 3454));
+
+
+            lista.EscreverListaTela();
+            lista.Remover(contaAdolfo);
+            lista.EscreverListaTela();
+            
         }
 
         static void TestaArrayContaCorrente()
