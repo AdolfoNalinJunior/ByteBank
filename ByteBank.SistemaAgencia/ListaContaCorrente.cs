@@ -12,6 +12,7 @@ namespace ByteBank.SistemaAgencia
     {
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
+        public int Tamanho { get { return _proximaPosicao; }}
 
         public ListaContaCorrente(int quantidade = 5)
         {
@@ -21,7 +22,7 @@ namespace ByteBank.SistemaAgencia
 
         public void Adicionar(ContaCorrente item)
         {
-            Console.WriteLine($"Adicionando item na posição {_proximaPosicao}");
+            //Console.WriteLine($"Adicionando item na posição {_proximaPosicao}");
 
             VerificarCapacidade(_proximaPosicao  + 1);
             _itens[_proximaPosicao] = item;
@@ -42,7 +43,7 @@ namespace ByteBank.SistemaAgencia
                     novoTamanho = tamanhoNecessario;
                 }
 
-                Console.WriteLine("Aumentando capacidade do Array");
+                //Console.WriteLine("Aumentando capacidade do Array");
                 ContaCorrente[] novoArray = new ContaCorrente[novoTamanho];
 
                 for (int indice = 0; indice < _itens.Length; indice++)
@@ -53,7 +54,7 @@ namespace ByteBank.SistemaAgencia
                 _itens = novoArray;
             }
         }
-                               // joãoRicardo
+                               
         public void Remover(ContaCorrente item)
         {
             int indiceItem = -1;
@@ -76,12 +77,29 @@ namespace ByteBank.SistemaAgencia
             _itens[_proximaPosicao] = null;
         }
 
-        public void EscreverListaTela()
+        public ContaCorrente GetIndice(int indici)
         {
-            for (int i = 0; i < _proximaPosicao; i++)
+            if (indici < 0 || indici >= _proximaPosicao)
             {
-                ContaCorrente conta = _itens[i];
-                Console.WriteLine($"conta número no índici {i}: {conta.Numero} {conta.Agencia}");
+                throw new ArgumentOutOfRangeException(nameof(indici));
+            }
+
+            return _itens[indici];
+        }
+
+        public ContaCorrente this[int indici]
+        {
+            get
+            {
+                return GetIndice(indici); 
+            }
+        }
+
+        public void AdicionarVarios(params ContaCorrente[] itens)
+        {
+            foreach (ContaCorrente conta in itens)
+            {
+                Adicionar(conta);
             }
         }
     }

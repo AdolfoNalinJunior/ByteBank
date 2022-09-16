@@ -11,7 +11,6 @@ namespace ByteBank.Modelos
     /// </summary>
     public class ContaCorrente
     {
-        
         public Cliente Titular { get; set; }
         public int ContadorTransferenciasNaoPermitidas { get; private set; }
         public int ContadorSaqueNaoPermitidos { get; private set; }
