@@ -18,7 +18,20 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-           
+            ListaDeObject listaIdade = new ListaDeObject();
+
+            listaIdade.Adicionar(10);
+            listaIdade.Adicionar(40);
+            listaIdade.Adicionar(50);
+            listaIdade.Adicionar(20);
+            listaIdade.Adicionar(44);
+            listaIdade.AdicionarVarios(60,14,30,15);
+
+            for (int i = 0; i < listaIdade.Tamanho; i++)
+            {
+                int idade = (int)listaIdade[i];
+                Console.WriteLine($"Idade no indice {i}: {idade}");
+            }
         }
 
         static void TestaListaDeContaCorrente()

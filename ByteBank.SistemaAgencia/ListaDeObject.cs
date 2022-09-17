@@ -1,31 +1,29 @@
 ﻿using ByteBank.Modelos;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ByteBank.SistemaAgencia
 {
-    public class ListaContaCorrente
+    public class ListaDeObject
     {
-        private ContaCorrente[] _itens;
+        private Object[] _itens;
         private int _proximaPosicao;
-        public int Tamanho { get { return _proximaPosicao; }}
+        public int Tamanho { get { return _proximaPosicao; } }
 
-        public ListaContaCorrente(int quantidade = 5)
+        public ListaDeObject(int quantidade = 5)
         {
-            _itens = new ContaCorrente[quantidade];
+            _itens = new Object[quantidade];
             _proximaPosicao = 0;
         }
 
-        public void Adicionar(ContaCorrente item)
+        public void Adicionar(Object item)
         {
             //Console.WriteLine($"Adicionando item na posição {_proximaPosicao}");
 
-            VerificarCapacidade(_proximaPosicao  + 1);
+            VerificarCapacidade(_proximaPosicao + 1);
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
         }
@@ -45,7 +43,7 @@ namespace ByteBank.SistemaAgencia
                 }
 
                 //Console.WriteLine("Aumentando capacidade do Array");
-                ContaCorrente[] novoArray = new ContaCorrente[novoTamanho];
+                Object[] novoArray = new Object[novoTamanho];
 
                 for (int indice = 0; indice < _itens.Length; indice++)
                 {
@@ -54,8 +52,8 @@ namespace ByteBank.SistemaAgencia
                 _itens = novoArray;
             }
         }
-                               
-        public void Remover(ContaCorrente item)
+
+        public void Remover(Object item)
         {
             int indiceItem = -1;
 
@@ -77,7 +75,7 @@ namespace ByteBank.SistemaAgencia
             _itens[_proximaPosicao] = null;
         }
 
-        public ContaCorrente GetIndice(int indici)
+        public Object GetIndice(int indici)
         {
             if (indici < 0 || indici >= _proximaPosicao)
             {
@@ -87,19 +85,19 @@ namespace ByteBank.SistemaAgencia
             return _itens[indici];
         }
 
-        public ContaCorrente this[int indici]
+        public void AdicionarVarios(params Object[] itens)
         {
-            get
+            foreach (Object item in itens)
             {
-                return GetIndice(indici); 
+                Adicionar(item);
             }
         }
 
-        public void AdicionarVarios(params ContaCorrente[] itens)
+        public Object this[int indici]
         {
-            foreach (ContaCorrente conta in itens)
+            get
             {
-                Adicionar(conta);
+                return GetIndice(indici);
             }
         }
     }
